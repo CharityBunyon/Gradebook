@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.VisualBasic;
 
 namespace Gradebook
 {
@@ -11,5 +12,7 @@ namespace Gradebook
         public double High;
 
         public double Low;
+
+        public char Letter;
     }
 }
