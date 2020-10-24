@@ -7,8 +7,13 @@ namespace Gradebook
     class Book
     {
         private List<double> grades;
-        public string Name;
 
+        public string Name { 
+            get; 
+            private set;
+        } //auto property
+
+        public const string category = "Science";
         public Book(string name)
         {
             grades = new List<double>();
@@ -16,7 +21,7 @@ namespace Gradebook
 
         }
 
-        public void AddLetterGrade(char letter)
+        public void AddGrade(char letter)
         {
             switch (letter)
             {
