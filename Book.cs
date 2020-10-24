@@ -4,16 +4,20 @@ using System.Text;
 
 namespace Gradebook
 {
+    public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
     class Book
     {
         private List<double> grades;
 
         public string Name { 
             get; 
-            private set;
+            set;
         } //auto property
 
         public const string category = "Science";
+
+       
         public Book(string name)
         {
             grades = new List<double>();
@@ -47,6 +51,10 @@ namespace Gradebook
             if (grade <= 100 && grade >=0)
             {
                 grades.Add(grade);
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
@@ -54,7 +62,7 @@ namespace Gradebook
             }
         }
 
-
+        public event GradeAddedDelegate GradeAdded;
         public Statistics GetStatistics()
         {
             var result = new Statistics();
